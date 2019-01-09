@@ -1,0 +1,47 @@
+<div id="form">
+  <mat-form-field>
+    <mat-select placeholder="Pick a course...">
+      <mat-option *ngFor="let course of courses" [value]="course">
+        {{course.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Tee Type...">
+      <mat-option [value]="0">
+        Pro
+      </mat-option>
+      <mat-option [value]="1">
+        Champion
+      </mat-option>
+      <mat-option [value]="2">
+        Men
+      </mat-option>
+      <mat-option [value]="3">
+        Women
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="name" matInput placeholder="Type a name..." #nameInput id="nameInput">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addPlayer(name); table.renderRows(); nameInput.value = '';" id="addPlayerButton">Add Player</button>
+</div>
+<table mat-table [dataSource]="players" #table id="playerTable">
+  <ng-container matColumnDef="playerName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let player"> {{ player | playersCheck: players}} </td>
+  </ng-container>
+  <ng-container matColumnDef="playerIndex">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let player"> {{ player.index}} </td>
+  </ng-container>
+  <ng-container matColumnDef="playerRemove">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let player"> <button mat-raised-button color="warn" (click)="removePlayer(player.index); table.renderRows()">Remove</button> </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let players; columns: columnsToDisplay"></tr>
+</table>
+
+<a routerLink="/game"><button mat-raised-button color="primary">Start Game</button></a>

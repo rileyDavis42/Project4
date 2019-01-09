@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <h1>{{title}}</h1>
+</mat-toolbar>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  let config = {
+    apiKey: "AIzaSyC4h2m_NHiLkFt0hF4f6RnRbIXxr6Q1Y_o",
+    authDomain: "golf-scorecard-a6818.firebaseapp.com",
+    databaseURL: "https://golf-scorecard-a6818.firebaseio.com",
+    projectId: "golf-scorecard-a6818",
+    storageBucket: "",
+    messagingSenderId: "429455918641"
+  };
+  firebase.initializeApp(config);
+</script>
+<router-outlet></router-outlet>
