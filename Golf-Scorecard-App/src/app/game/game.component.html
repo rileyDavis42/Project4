@@ -1,3 +1,10 @@
-<p>
-  game works!
-</p>
+<table id="gameTable">
+  <tr>
+    <th></th>
+    <th *ngFor="let hole of course['holes']">{{hole['hole']}}</th>
+  </tr>
+  <tr *ngFor="let player of players">
+    <td>{{player['name']}}</td>
+    <td *ngFor="let hole of course['holes']"></td>
+  </tr>
+</table>

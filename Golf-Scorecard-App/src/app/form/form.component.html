@@ -1,13 +1,13 @@
 <div id="form">
   <mat-form-field>
-    <mat-select placeholder="Pick a course...">
+    <mat-select placeholder="Pick a course..." [(ngModel)]="courseID">
       <mat-option *ngFor="let course of courses" [value]="course">
         {{course.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Tee Type...">
+    <mat-select [(ngModel)]="teeType" placeholder="Tee Type...">
       <mat-option [value]="0">
         Pro
       </mat-option>
@@ -44,4 +44,4 @@
   <tr mat-row *matRowDef="let players; columns: columnsToDisplay"></tr>
 </table>
 
-<a routerLink="/game"><button mat-raised-button color="primary">Start Game</button></a>
+<button id="startButton" mat-raised-button color="primary" (click)="startGame()" routerLink="/game">Start Game</button>

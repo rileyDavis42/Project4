@@ -16,9 +16,9 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { PlayersPipe } from "./players/players.pipe";
 import { GameComponent } from './game/game.component';
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../environments/environment";
-import {AngularFireDatabaseModule} from "@angular/fire/database";
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
 
 
 @NgModule({

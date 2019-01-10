@@ -1,0 +1,13 @@
+#gameTable {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  display: table;
+  margin: 15vh auto;
+  font-family: sans-serif;
+  width: 70vw;
+}
+
+#gameTable, #gameTable th, #gameTable td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}

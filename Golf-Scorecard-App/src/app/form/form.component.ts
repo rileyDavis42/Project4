@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../courses/course.service';
 import { Course } from '../../models/course';
+import { User } from "../../models/user";
 
 
 @Component({
@@ -15,6 +16,8 @@ export class FormComponent implements OnInit {
   players: Object[];
   columnsToDisplay = ['playerName', 'playerIndex', 'playerRemove'];
   courseService: CourseService;
+  courseID: number;
+  teeType: number;
 
   constructor( courseService: CourseService ) {
     this.courseService = courseService;
@@ -53,6 +56,22 @@ export class FormComponent implements OnInit {
       }
     }
     this.players = newPlayers;
+  }
+
+  startGame() {
+    let newUser: User = new class implements User {
+      courseId: number;
+      players: Object[];
+      teeType: number;
+    };
+    newUser.courseId = this.courseID;
+    newUser.teeType = this.teeType;
+    newUser.players = this.players;
+
+    sessionStorage.setItem("players", JSON.stringify(this.players));
+    sessionStorage.setItem("teeType", String(this.teeType));
+    sessionStorage.setItem("courseID", String(this.courseID["id"]));
+    this.courseService.createNewGame(newUser);
   }
 
 }
