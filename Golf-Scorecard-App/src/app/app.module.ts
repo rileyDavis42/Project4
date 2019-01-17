@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule,
+  MatInputModule, MatProgressSpinnerModule,
   MatSelectModule, MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -42,6 +42,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
     MatButtonModule,
     MatTableModule,
     FormsModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(
       [
         { path: '', component: FormComponent },

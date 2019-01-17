@@ -35,3 +35,33 @@ input[matInput] {
   margin: 10px auto;
   display: block;
 }
+
+#resumeGame {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+#resumeGame mat-form-field {
+  display: inline;
+  width: 25%;
+}
+
+#course_info {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #DDDDDD;
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  margin: 10px auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+#course_info table {
+  width: 75%;
+}
+
+#course_info table tr {
+  border-top: 1px solid #555555;
+}

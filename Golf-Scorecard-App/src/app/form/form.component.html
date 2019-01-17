@@ -1,13 +1,13 @@
 <div id="form">
   <mat-form-field>
-    <mat-select placeholder="Pick a course..." [(ngModel)]="courseID">
-      <mat-option *ngFor="let course of courses" [value]="course">
+    <mat-select required placeholder="Pick a course..." [(ngModel)]="courseID" (selectionChange)="displayCourseInfo()">
+      <mat-option *ngFor="let course of courses" [value]="course.id">
         {{course.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-select [(ngModel)]="teeType" placeholder="Tee Type...">
+    <mat-select required [(ngModel)]="teeType" placeholder="Tee Type..." (selectionChange)="displayCourseInfo()">
       <mat-option [value]="0">
         Pro
       </mat-option>
@@ -23,7 +23,7 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <input [(ngModel)]="name" matInput placeholder="Type a name..." #nameInput id="nameInput">
+    <input [(ngModel)]="name" matInput placeholder="Type a name..." #nameInput id="nameInput" autocomplete="off">
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="addPlayer(name); table.renderRows(); nameInput.value = '';" id="addPlayerButton">Add Player</button>
 </div>
@@ -44,4 +44,24 @@
   <tr mat-row *matRowDef="let players; columns: columnsToDisplay"></tr>
 </table>
 
-<button id="startButton" mat-raised-button color="primary" (click)="startGame()" routerLink="/game">Start Game</button>
+<div id="course_info" *ngIf="courseData !== undefined && teeType >= 0">
+  <h3>{{ courseData['name'] }}</h3>
+  <table>
+    <tr>
+      <th>Attribute</th>
+      <th>Value</th>
+    </tr>
+    <tr> <td>Holes</td> <td> {{ courseData['holeCount'] }} </td></tr>
+    <tr> <td>Average Par</td> <td> {{ avgPar }} </td> </tr>
+    <tr> <td>Total Yardage</td> <td> {{ totalYards }} </td> </tr>
+  </table>
+</div>
+
+<button id="startButton" mat-raised-button color="primary" (click)="startGame()">Start Game</button>
+
+<div id="resumeGame">
+  <mat-form-field>
+    <input matInput placeholder="User ID..." autocomplete="off" #resumeUserID>
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="courseService.resumeGame(resumeUserID.value)">Resume Game</button>
+</div>

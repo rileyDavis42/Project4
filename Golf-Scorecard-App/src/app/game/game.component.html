@@ -1,10 +1,39 @@
-<table id="gameTable">
-  <tr>
-    <th></th>
-    <th *ngFor="let hole of course['holes']">{{hole['hole']}}</th>
-  </tr>
-  <tr *ngFor="let player of players">
-    <td>{{player['name']}}</td>
-    <td *ngFor="let hole of course['holes']"></td>
-  </tr>
-</table>
+<ng-container *ngIf="!isLoaded">
+  <mat-progress-spinner></mat-progress-spinner>
+</ng-container>
+
+<ng-container *ngIf="isLoaded">
+
+  <div id="title"><h1>{{course.name}}</h1></div>
+  <table id="gameTable">
+    <tr>
+      <th></th>
+      <th *ngFor="let hole of course['holes']">{{hole['hole']}}</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let player of players">
+      <td>{{player['name']}}</td>
+      <td *ngFor="let hole of course['holes']; let i = index">
+        <input type="text" value="{{player['scores'][i]}}" class="score" [(ngModel)]="player['scores'][i]"/>
+      </td>
+      <td>{{ getScoreTotal(player.scores) }}</td>
+    </tr>
+    <tr>
+      <td>PAR</td>
+      <td *ngFor="let hole of course['holes']">{{hole["teeBoxes"][teeType]["par"]}}</td>
+      <td>{{ parTotal }}</td>
+    </tr>
+    <tr>
+      <td>Yards</td>
+      <td *ngFor="let hole of course['holes']">{{hole["teeBoxes"][teeType]["yards"]}}</td>
+      <td>{{ yardsTotal }}</td>
+    </tr>
+    <tr>
+      <td>Handicap</td>
+      <td *ngFor="let hole of course['holes']">{{hole["teeBoxes"][teeType]["hcp"]}}</td>
+      <td> {{ handicapTotal }} </td>
+    </tr>
+  </table>
+
+  <button mat-raised-button color="accent" (click)="saveGame()" id="save">Save Game</button>
+</ng-container>

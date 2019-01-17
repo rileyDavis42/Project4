@@ -1,5 +1,7 @@
+import { Course } from './course';
+
 export interface User {
-  courseId: number;
+  course: Course;
   teeType: number;
   players: Object[];
 }

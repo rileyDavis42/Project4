@@ -1,8 +1,20 @@
+#title {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  margin: auto;
+  display: block;
+  font-family: sans-serif;
+  width: 50vw;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 #gameTable {
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   display: table;
-  margin: 15vh auto;
+  margin: 10gvh auto;
   font-family: sans-serif;
   width: 70vw;
 }
@@ -10,4 +22,22 @@
 #gameTable, #gameTable th, #gameTable td {
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 5px;
+}
+
+tr, td {
+  text-align: center;
+}
+
+.score {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+}
+
+#save {
+  display: block;
+  margin: auto;
 }
