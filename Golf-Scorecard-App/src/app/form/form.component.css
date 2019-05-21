@@ -65,3 +65,9 @@ input[matInput] {
 #course_info table tr {
   border-top: 1px solid #555555;
 }
+
+@media only screen and (max-width: 1000px) {
+  #form {
+    width: 90%;
+  }
+}

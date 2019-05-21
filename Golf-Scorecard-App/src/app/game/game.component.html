@@ -6,6 +6,9 @@
 
   <div id="title"><h1>{{course.name}}</h1></div>
   <table id="gameTable">
+    <thead>
+      <button mat-raised-button color="warn" (click)="resetGame()">Reset</button>
+    </thead>
     <tr>
       <th></th>
       <th *ngFor="let hole of course['holes']">{{hole['hole']}}</th>

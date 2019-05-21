@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 @Injectable()
 export class CourseService {
 
-  courseUrl = 'http://golf-courses-api.herokuapp.com/courses';
+  courseUrl = 'https://golf-courses-api.herokuapp.com/courses';
   courseDataUrl = 'https://golf-courses-api.herokuapp.com/courses/';
   usersRef: AngularFireObject<User>;
   users: Object;

@@ -77,4 +77,16 @@ export class GameComponent implements OnInit {
     return scoresTotal;
   }
 
+  resetGame() {
+    if(confirm("Reset all the scores?")) {
+      for(let i = 0; i < this.players.length; i++) {
+        this.players[i] = {
+          index: this.players[i]["index"],
+          name: this.players[i]["name"],
+          scores: []
+        }
+      }
+    }
+  }
+
 }
